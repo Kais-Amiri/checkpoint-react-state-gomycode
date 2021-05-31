@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Profile from "./Profile";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      person: {
+        name: "Kais",
+        lastName: "Amiri",
+        profession: "full stack developer",
+        phoneNumber: "99999999",
+        adress: "Ben Arous, Tunisie",
+        bio: "I am student in gomycode",
+        imgSrc:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWCEGpuakGVhwczoA5D93q1m3iUQ4vaYAc07uvcvBJfAzAT9XBQzlg_l47jY03KG5xvQ&usqp=CAU",
+      },
+      bool: true,
+      time: 0,
+    };
+  }
+  toggleProfile = () => {
+    this.setState({ bool: !this.state.bool });
+  };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        time: this.state.time + 1,
+      });
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <div className="App" style={{ diplay: "flex", flexDirection: "column" }}>
+        {this.state.bool ? <Profile myinfo={this.state.person} /> : null}
+        <button
+          onClick={() => this.toggleProfile()}
+          style={{
+            backgroundColor: "white",
+            border: "1px solid green",
+            borderRadius: "1rem",
+            padding: "3% 8%",
+            cursor: "pointer",
+            color: "#00468B",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Toggle Profile
+        </button>
+        <h3>{this.state.time} seconds</h3>
+      </div>
+    );
+  }
 }
 
 export default App;
