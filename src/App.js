@@ -43,6 +43,7 @@ class App extends Component {
           justifyContent: "center",
         }}
       >
+        {this.state.bool ? <Profile myinfo={this.state.person} /> : null}
         <button
           onClick={() => this.toggleProfile()}
           style={{
