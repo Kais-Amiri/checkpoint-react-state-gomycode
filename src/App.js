@@ -27,7 +27,7 @@ class App extends Component {
   componentDidMount() {
     setInterval(() => {
       this.setState({
-        time: this.state.time + 1,
+        time: new Date().toLocaleTimeString(),
       });
     }, 1000);
   }
@@ -49,7 +49,7 @@ class App extends Component {
         >
           Toggle Profile
         </button>
-        <h3>{this.state.time} seconds</h3>
+        <h3>Time : {this.state.time}</h3>
       </div>
     );
   }
