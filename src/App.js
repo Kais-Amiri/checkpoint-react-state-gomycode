@@ -34,15 +34,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ diplay: "flex", flexDirection: "column" }}>
-        {this.state.bool ? <Profile myinfo={this.state.person} /> : null}
+      <div
+        className="App"
+        style={{
+          diplay: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <button
           onClick={() => this.toggleProfile()}
           style={{
             backgroundColor: "white",
             border: "1px solid green",
             borderRadius: "1rem",
-            padding: "3% 8%",
+            padding: "1% 3%",
             cursor: "pointer",
             color: "#00468B",
           }}
