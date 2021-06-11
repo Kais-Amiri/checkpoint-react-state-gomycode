@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Profile from "./Profile";
+import TimerComp from "./TimerComp";
 
 class App extends Component {
   constructor(props) {
@@ -23,14 +24,6 @@ class App extends Component {
   toggleProfile = () => {
     this.setState({ bool: !this.state.bool });
   };
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        time: new Date().toLocaleTimeString(),
-      });
-    }, 1000);
-  }
 
   render() {
     return (
@@ -57,7 +50,7 @@ class App extends Component {
         >
           Toggle Profile
         </button>
-        <h3>Time : {this.state.time}</h3>
+        <TimerComp />
       </div>
     );
   }
